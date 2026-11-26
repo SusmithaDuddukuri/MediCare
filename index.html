@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Pro - Smart Hospital Management System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-hospital"></i>
+                <span>MediCare Pro</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="pages/services.html" class="nav-link">Services</a></li>
+                <li><a href="pages/doctors.html" class="nav-link">Doctors</a></li>
+                <li><a href="pages/appointments.html" class="nav-link">Appointments</a></li>
+                <li><a href="pages/patients.html" class="nav-link">Patients</a></li>
+                <li><a href="pages/pharmacy.html" class="nav-link">Pharmacy</a></li>
+                <li><a href="pages/billing.html" class="nav-link">Billing</a></li>
+                <li><a href="pages/reports.html" class="nav-link">Reports</a></li>
+                <li><a href="pages/about.html" class="nav-link">About</a></li>
+                <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-outline" id="loginBtn" onclick="openModal('loginModal')">Login</button>
+                <button class="btn btn-primary" id="registerBtn" onclick="openModal('registerModal')">Register</button>
+                <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Advanced Hospital Management <span class="highlight">Made Simple</span></h1>
+            <p class="hero-subtitle">Complete digital solution for patient care, appointments, pharmacy, billing, and analytics. Trusted by 500+ hospitals worldwide.</p>
+            <div class="hero-buttons">
+                <a href="pages/appointments.html" class="btn btn-primary btn-lg">Book Appointment</a>
+                <a href="pages/services.html" class="btn btn-outline btn-lg">Explore Services</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3 data-count="125000">0</h3>
+                    <p>Patients Served</p>
+                </div>
+                <div class="stat-item">
+                    <h3 data-count="850">0</h3>
+                    <p>Expert Doctors</p>
+                </div>
+                <div class="stat-item">
+                    <h3 data-count="98">0</h3>
+                    <p>% Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3 data-count="24">0</h3>
+                    <p>Hour Support</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-card card-1">
+                <i class="fas fa-user-md"></i>
+                <span>Live Consultations</span>
+            </div>
+            <div class="floating-card card-2">
+                <i class="fas fa-pills"></i>
+                <span>Pharmacy Ready</span>
+            </div>
+            <div class="floating-card card-3">
+                <i class="fas fa-heartbeat"></i>
+                <span>Real-time Monitoring</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose MediCare Pro?</h2>
+                <p>Comprehensive modules designed for modern healthcare facilities</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Smart Appointments</h3>
+                    <p>AI-powered scheduling with real-time availability, reminders, and conflict resolution for doctors and patients.</p>
+                    <a href="pages/appointments.html" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon"><i class="fas fa-notes-medical"></i></div>
+                    <h3>Electronic Health Records</h3>
+                    <p>Secure, searchable patient records with history, prescriptions, lab results, and multi-doctor collaboration.</p>
+                    <a href="pages/patients.html" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon"><i class="fas fa-prescription-bottle-alt"></i></div>
+                    <h3>Integrated Pharmacy</h3>
+                    <p>Inventory management, auto-refill alerts, drug interaction checks, and seamless billing integration.</p>
+                    <a href="pages/pharmacy.html" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Automated Billing</h3>
+                    <p>Insurance claims, package pricing, payment gateways, and detailed financial reports in one place.</p>
+                    <a href="pages/billing.html" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Analytics & Reports</h3>
+                    <p>Real-time dashboards for occupancy, revenue, patient outcomes, and operational efficiency metrics.</p>
+                    <a href="pages/reports.html" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon"><i class="fas fa-user-nurse"></i></div>
+                    <h3>Staff & Roster Management</h3>
+                    <p>Shift planning, attendance, role-based access, and performance tracking for medical and admin staff.</p>
+                    <a href="pages/doctors.html" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Services</h2>
+                <p>End-to-end healthcare management solutions</p>
+            </div>
+            <div class="services-tabs">
+                <button class="tab-btn active" data-tab="outpatient">Outpatient</button>
+                <button class="tab-btn" data-tab="inpatient">Inpatient</button>
+                <button class="tab-btn" data-tab="emergency">Emergency</button>
+                <button class="tab-btn" data-tab="diagnostics">Diagnostics</button>
+                <button class="tab-btn" data-tab="surgery">Surgery</button>
+            </div>
+            <div class="tab-content active" id="outpatient">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>Outpatient Department (OPD)</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Online & walk-in appointment booking</li>
+                            <li><i class="fas fa-check"></i> Token system & queue management</li>
+                            <li><i class="fas fa-check"></i> Consultation notes & e-prescriptions</li>
+                            <li><i class="fas fa-check"></i> Follow-up reminders via SMS/Email</li>
+                            <li><i class="fas fa-check"></i> Multi-specialty clinic support</li>
+                        </ul>
+                        <a href="pages/appointments.html" class="btn btn-primary">Book OPD Appointment</a>
+                    </div>
+                    <div class="service-visual">
+                        <i class="fas fa-clinic-medical fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="inpatient">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>Inpatient Department (IPD)</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Bed allocation & occupancy tracking</li>
+                            <li><i class="fas fa-check"></i> Nursing care plans & vitals monitoring</li>
+                            <li><i class="fas fa-check"></i> Discharge summary generation</li>
+                            <li><i class="fas fa-check"></i> Room & ward management</li>
+                            <li><i class="fas fa-check"></i> Family communication portal</li>
+                        </ul>
+                        <a href="pages/patients.html" class="btn btn-primary">View IPD Dashboard</a>
+                    </div>
+                    <div class="service-visual">
+                        <i class="fas fa-procedures fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="emergency">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>Emergency & Trauma</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Triage & priority queuing</li>
+                            <li><i class="fas fa-check"></i> Ambulance integration</li>
+                            <li><i class="fas fa-check"></i> Critical care alerts</li>
+                            <li><i class="fas fa-check"></i> Trauma protocol checklists</li>
+                            <li><i class="fas fa-check"></i> 24/7 doctor on-call system</li>
+                        </ul>
+                        <a href="pages/contact.html" class="btn btn-primary">Emergency Contact</a>
+                    </div>
+                    <div class="service-visual">
+                        <i class="fas fa-ambulance fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="diagnostics">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>Diagnostics & Lab</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Lab order management</li>
+                            <li><i class="fas fa-check"></i> Sample tracking & barcode</li>
+                            <li><i class="fas fa-check"></i> Results auto-upload to EHR</li>
+                            <li><i class="fas fa-check"></i> Imaging (X-Ray, CT, MRI) slots</li>
+                            <li><i class="fas fa-check"></i> Quality control reports</li>
+                        </ul>
+                        <a href="pages/services.html" class="btn btn-primary">View Lab Services</a>
+                    </div>
+                    <div class="service-visual">
+                        <i class="fas fa-flask fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="surgery">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>Operation Theatre</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> OT scheduling & resource planning</li>
+                            <li><i class="fas fa-check"></i> Pre-op checklist & consent</li>
+                            <li><i class="fas fa-check"></i> Surgical team assignment</li>
+                            <li><i class="fas fa-check"></i> Post-op recovery tracking</li>
+                            <li><i class="fas fa-check"></i> Equipment sterilization logs</li>
+                        </ul>
+                        <a href="pages/doctors.html" class="btn btn-primary">View Surgeons</a>
+                    </div>
+                    <div class="service-visual">
+                        <i class="fas fa-user-md fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Preview -->
+    <section class="doctors-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Specialists</h2>
+                <p>Highly qualified doctors across multiple specialties</p>
+            </div>
+            <div class="doctors-carousel" id="doctorsCarousel">
+                <!-- Populated by JS -->
+            </div>
+            <div class="text-center">
+                <a href="pages/doctors.html" class="btn btn-outline">View All Doctors</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Hospitals and clinics transforming with MediCare Pro</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"MediCare Pro reduced our appointment no-shows by 40% and improved patient satisfaction scores dramatically."</p>
+                    <div class="author">
+                        <strong>Dr. Ananya Sharma</strong>
+                        <span>Director, City Care Hospital</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The integrated pharmacy and billing module alone paid for the system in 6 months through reduced wastage and faster claims."</p>
+                    <div class="author">
+                        <strong>Rajesh Mehta</strong>
+                        <span>CFO, Green Valley Multispecialty</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"From 200-bed hospital to multi-location chain, MediCare Pro scaled with us seamlessly. Excellent support team."</p>
+                    <div class="author">
+                        <strong>Priya Nair</strong>
+                        <span>COO, LifeLine Hospitals Group</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Hospital?</h2>
+            <p>Join hundreds of healthcare providers using MediCare Pro to deliver better care.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary btn-lg" onclick="openModal('registerModal')">Start Free Trial</button>
+                <a href="pages/contact.html" class="btn btn-outline btn-lg">Schedule Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><i class="fas fa-hospital"></i> MediCare Pro</h4>
+                    <p>Empowering healthcare institutions with intelligent, secure, and scalable management solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/services.html">Services</a></li>
+                        <li><a href="pages/doctors.html">Doctors</a></li>
+                        <li><a href="pages/appointments.html">Appointments</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Modules</h4>
+                    <ul>
+                        <li><a href="pages/patients.html">Patient Records</a></li>
+                        <li><a href="pages/pharmacy.html">Pharmacy</a></li>
+                        <li><a href="pages/billing.html">Billing</a></li>
+                        <li><a href="pages/reports.html">Analytics</a></li>
+                        <li><a href="pages/contact.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Healthcare Avenue, Tech Park, Bangalore 560001</li>
+                        <li><i class="fas fa-phone"></i> +91 80 4567 8900</li>
+                        <li><i class="fas fa-envelope"></i> support@medicarepro.health</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MediCare Pro. All rights reserved. | Built for real-world hospital operations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login to MediCare Pro</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email / Username</label>
+                    <input type="text" id="loginEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter password">
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" onclick="showForgotPassword()">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <p class="modal-footer-text">Don't have an account? <a href="#" onclick="switchModal('loginModal','registerModal')">Register</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Create Account</h2>
+            <form id="registerForm" onsubmit="handleRegister(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regRole">Role</label>
+                        <select id="regRole" required>
+                            <option value="">Select Role</option>
+                            <option value="admin">Hospital Admin</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="nurse">Nurse</option>
+                            <option value="receptionist">Receptionist</option>
+                            <option value="pharmacist">Pharmacist</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">Phone</label>
+                    <input type="tel" id="regPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required minlength="8">
+                </div>
+                <div class="form-group">
+                    <label for="regHospital">Hospital / Clinic Name</label>
+                    <input type="text" id="regHospital" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+            <p class="modal-footer-text">Already have an account? <a href="#" onclick="switchModal('registerModal','loginModal')">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics - MediCare Pro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><i class="fas fa-hospital"></i> <span>MediCare Pro</span></a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                <li><a href="appointments.html" class="nav-link">Appointments</a></li>
+                <li><a href="patients.html" class="nav-link">Patients</a></li>
+                <li><a href="pharmacy.html" class="nav-link">Pharmacy</a></li>
+                <li><a href="billing.html" class="nav-link">Billing</a></li>
+                <li><a href="reports.html" class="nav-link">Reports</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-outline" id="loginBtn" onclick="openModal('loginModal')">Login</button>
+                <button class="btn btn-primary" id="registerBtn" onclick="openModal('registerModal')">Register</button>
+                <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+    <header class="page-header">
+        <div class="container">
+            <h1>Reports & Analytics</h1>
+            <p>Dashboards and Operational Insights</p>
+        </div>
+    </header>
+    <section class="page-content">
+        <div class="container">
+            <div class="card">
+                <div class="card-header"><h3>Reports & Analytics Management</h3>
+                    <div>
+                        <button class="btn btn-sm btn-primary" onclick="Utils.showToast('New record form opened (demo)','info')"><i class="fas fa-plus"></i> Add</button>
+                        <button class="btn btn-sm btn-outline" onclick="exportData()"><i class="fas fa-download"></i> Export</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="filters-bar">
+                        <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Search records..." oninput="filterTable()"></div>
+                    </div>
+                    <div class="stats-grid" style="margin-bottom:1.5rem;">
+                        <div class="stat-card"><div class="stat-icon blue"><i class="fas fa-database"></i></div><div><div class="stat-value" id="recordCount">0</div><div class="stat-label">Total Records</div></div></div>
+                        <div class="stat-card"><div class="stat-icon green"><i class="fas fa-check-circle"></i></div><div><div class="stat-value">Online</div><div class="stat-label">System Status</div></div></div>
+                    </div>
+                    <div id="tableContainer"><p style="text-align:center;color:#6c757d;padding:2rem;">Data table loads interactively from APP_DATA.</p></div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <div class="toast" id="toast"></div>
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 MediCare Pro. All rights reserved.</p></div></div></footer>
+    <script src="../js/data.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".nav-link").forEach(l => {
+                if (l.getAttribute("href") === "reports.html") l.classList.add("active");
+            });
+            let dataKey = "doctors";
+            if ("reports" === "patients") dataKey = "patients";
+            else if ("reports" === "pharmacy") dataKey = "pharmacy";
+            else if ("reports" === "billing" || "reports" === "reports") dataKey = "appointments";
+            if (typeof APP_DATA !== "undefined" && APP_DATA[dataKey]) {
+                document.getElementById("recordCount").textContent = APP_DATA[dataKey].length.toLocaleString();
+                renderSimpleTable(APP_DATA[dataKey].slice(0, 20), dataKey);
+            }
+        });
+        function renderSimpleTable(rows, key) {
+            if (!rows.length) return;
+            const keys = Object.keys(rows[0]).slice(0, 6);
+            let html = '<div class="table-responsive"><table><thead><tr>' + keys.map(k => '<th>' + k + '</th>').join('') + '</tr></thead><tbody>';
+            rows.forEach(r => {
+                html += '<tr>' + keys.map(k => '<td>' + (Array.isArray(r[k]) ? r[k].join(', ') : r[k]) + '</td>').join('') + '</tr>';
+            });
+            html += '</tbody></table></div><p style="margin-top:1rem;color:#6c757d;font-size:0.875rem;">Showing first 20 of many records. Use search and export for full data.</p>';
+            document.getElementById("tableContainer").innerHTML = html;
+        }
+        function filterTable() {
+            Utils.showToast("Filter applied (demo)", "info");
+        }
+        function exportData() {
+            let dataKey = "doctors";
+            if ("reports" === "patients") dataKey = "patients";
+            else if ("reports" === "pharmacy") dataKey = "pharmacy";
+            else dataKey = "appointments";
+            if (typeof APP_DATA !== "undefined") Utils.downloadCSV(APP_DATA[dataKey] || [], "reports-export.csv");
+        }
+    </script>
+</body>
+</html>
