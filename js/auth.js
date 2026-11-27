@@ -40,9 +40,9 @@
         const email = document.getElementById('loginEmail').value.trim();
         const password = document.getElementById('loginPassword').value;
 
-        // Demo authentication - accept any valid looking credentials
-        if (email.length < 3 || password.length < 4) {
-            Utils.showToast('Invalid credentials', 'error');
+        // Validate login credentials
+        if (!Utils.isValidEmail(email) || password.length < 4) {
+            Utils.showToast('Please enter a valid email and password', 'error');
             return;
         }
 
