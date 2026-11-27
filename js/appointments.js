@@ -57,7 +57,12 @@
     function applyFilters() {
         let list = [...APP_DATA.appointments];
         const term = document.getElementById('apptSearch')?.value || '';
-        list = Utils.searchFilter(list, term, ['patient', 'doctor', 'id', 'department']);
+        list = Utils.searchFilter(list, term.trim(), [
+            'patient',
+            'doctor',
+            'id',
+            'department'
+        ]);
         const status = document.getElementById('statusFilter')?.value;
         if (status) list = list.filter(a => a.status === status);
         const type = document.getElementById('typeFilter')?.value;
