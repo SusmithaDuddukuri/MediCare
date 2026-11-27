@@ -66,7 +66,13 @@
 
         // Search
         const term = document.getElementById('doctorSearch')?.value || '';
-        list = Utils.searchFilter(list, term, ['name', 'specialty', 'hospital', 'education']);
+        list = Utils.searchFilter(list, term.trim(), [
+           'name',
+           'specialty',
+           'hospital',
+           'education',
+           'languages'
+        ]);
 
         // Specialty
         const spec = document.getElementById('specialtyFilter')?.value;
